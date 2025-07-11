@@ -1,11 +1,8 @@
 import { google } from 'googleapis';
 import { NextResponse } from 'next/server';
 
-// Place your google-service-account.json file in:
-// c:/Users/ANIRUDH/Desktop/New folder/ArdentPixel-main/app/api/contact/google-service-account.json
-const credentials = process.env.GOOGLE_SERVICE_ACCOUNT_JSON
-  ? JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON)
-  : require('./google-service-account.json');
+// Use only environment variable for credentials
+const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON!);
 
 const spreadsheetId = '1AzUKusTcVzvtYSv9TussC091JWlohC819EtqB_f4_Fg'; // Your Google Sheet ID
 const range = 'Sheet1!A2'; // Adjust to your sheet name and range
